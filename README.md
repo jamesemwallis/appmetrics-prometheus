@@ -129,6 +129,10 @@ var server = app.listen(appEnv.port, '0.0.0.0', function() {
   injected if the application wants to use appmetrics, since it is a singleton
   module and only one can be present in an application. Optional, defaults to
   the appmetrics dependency of this module.
+* options.endpoint {Object} The endpoint that the Prometheus data will be
+  outputted onto. Use only if you cannot use /metrics for Prometheus use.
+  Ensure you have configured Prometheus to look for the data on your specified
+  endpoint. Optional, defaults to `/metrics`
 
 Auto-attach to all `http` servers created after this call, calling `prometheus.monitor(options)` for every server.
 
